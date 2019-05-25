@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var arr = [12,3,42,44,23,13,6,4,6];
+        function select(params) {
+            var i,j,min;
+            var temp;
+            for(i = 0; i < params.length; i++){
+                min = i;
+                for(j =  i+1; j < params.length; j++){
+                    if(params[min] > params[j]){
+                        min = j
+                    }
+                }   
+                temp = params[min];
+                console.log("最小数" + temp)
+                params[min] = params[i];
+                console.log('交换数' + params[min])
+                params[i] = temp;
+                console.log('第一个数' + params[i])
+            }
+            return params
+            
+        }
+
+        console.log(select(arr))
+    </script>
+</body>
+</html>

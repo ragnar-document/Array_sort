@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<script>
+    var arr = [12,3,42,44,23,13,6,4,6];
+    function interposition (arr) {
+       var i,j;
+       for(i = 1;i<arr.length;i++){
+            for(j = 0;j<i;j++){
+                if(arr[j] > arr[i]){  // 如果第一个大于第二就把第二插入到第一前面
+                    arr.splice(j,0,arr[i]);
+                    arr.splice(i+1,1); //删除i原来的位置
+                    break
+                }
+            }
+       }
+       return arr
+    }
+
+    console.log(interposition(arr))
+</script>
+</body>
+</html>

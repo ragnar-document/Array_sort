@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+function merge(left, right){
+  var result = [];
+  while(left.length > 0 && right.length > 0){
+    if(left[0] < right[0]){
+      result.push(left.shift());
+    }else{
+      result.push(right.shift());
+    }
+  }
+  //整合：在保持元素顺序的同时将上一步得到的子序列整合到一起（归并）
+  return result.concat(left, right);
+}
+
+function mergeSort(arr){
+  if(arr.length <=1) return arr;                //如果数组小于等于一就没必要排序什么的了把
+  //分割：递归地把当前序列平均分割成两半。
+  var middle = Math.floor(arr.length / 2);      //Math.floor() 返回小于或等于一个给定数字的最大整数
+  var left = arr.slice(0, middle);
+  var right = arr.slice(middle);
+  return merge(mergeSort(left), mergeSort(right)); //传值调用merge
+}
+        var arr = [12,3,42,44,23,13,6,4,6];
+        console.log(mergeSort(arr))
+    </script>
+</body>
+</html>
